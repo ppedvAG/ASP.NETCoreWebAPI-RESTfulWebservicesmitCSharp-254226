@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "M001_Einstieg", "M001_Einst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeathterMinimalApi", "WeathterMinimalApi\WeathterMinimalApi.csproj", "{3378AA1A-CEEA-4DB6-8C7B-09031CBFC88B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
 	EndProjectSection
@@ -19,6 +19,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloDependencyInjection", "HelloDependencyInjection\HelloDependencyInjection.csproj", "{E1286830-328C-426D-9460-65DF76845510}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabDependencyInjection", "LabDependencyInjection\LabDependencyInjection.csproj", "{9282C1B6-5310-B88A-2BB2-C99832B1C352}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessModel", "BusinessModel\BusinessModel.csproj", "{978ABF26-74AE-45BE-074C-36802CDDAB32}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "M003_Controllers", "M003_Controllers", "{2ACD42EB-2D9B-49AC-B6FA-C96607FFF52E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehicleManagement", "VehicleManagement\VehicleManagement.csproj", "{161453C7-510D-46BC-93CF-D4C9247B17DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +48,14 @@ Global
 		{9282C1B6-5310-B88A-2BB2-C99832B1C352}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9282C1B6-5310-B88A-2BB2-C99832B1C352}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9282C1B6-5310-B88A-2BB2-C99832B1C352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978ABF26-74AE-45BE-074C-36802CDDAB32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978ABF26-74AE-45BE-074C-36802CDDAB32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978ABF26-74AE-45BE-074C-36802CDDAB32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978ABF26-74AE-45BE-074C-36802CDDAB32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161453C7-510D-46BC-93CF-D4C9247B17DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161453C7-510D-46BC-93CF-D4C9247B17DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161453C7-510D-46BC-93CF-D4C9247B17DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161453C7-510D-46BC-93CF-D4C9247B17DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,6 +65,8 @@ Global
 		{3378AA1A-CEEA-4DB6-8C7B-09031CBFC88B} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{E1286830-328C-426D-9460-65DF76845510} = {239523EF-C81E-4F90-B43E-921D14E8ADB6}
 		{9282C1B6-5310-B88A-2BB2-C99832B1C352} = {239523EF-C81E-4F90-B43E-921D14E8ADB6}
+		{978ABF26-74AE-45BE-074C-36802CDDAB32} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+		{161453C7-510D-46BC-93CF-D4C9247B17DF} = {2ACD42EB-2D9B-49AC-B6FA-C96607FFF52E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87C8E858-E3F7-46F1-B444-F032A81C9396}
