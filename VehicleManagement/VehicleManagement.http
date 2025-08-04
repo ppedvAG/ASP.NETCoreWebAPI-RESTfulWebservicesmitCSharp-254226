@@ -44,7 +44,7 @@ Accept: application/json
   "manufacturer": "Dacia",
   "model": "Logan",
   "color": "red",
-  "fuel": "Gasoline",
+  "fuelType": "Gasoline",
   "topSpeed": 123,
   "type": "Sedan",
   "registered": "2022-01-01T00:00:00Z"
