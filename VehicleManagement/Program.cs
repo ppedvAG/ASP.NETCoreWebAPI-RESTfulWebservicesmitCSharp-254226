@@ -1,5 +1,6 @@
 ﻿
 using BusinessModel.Contracts;
+using BusinessModel.Data;
 using BusinessModel.Services;
 using System.Text.Json.Serialization;
 using WebApiContrib.Core.Formatter.Csv;
@@ -29,6 +30,10 @@ public class Program
             .AddXmlSerializerFormatters()
             // Install-Package WebApiContrib.Core.Formatter.Csv
             .AddCsvSerializerFormatters();
+
+        // Auch notwendig, um Mirgration-Script zu generieren
+        var connectionString = builder.Configuration.GetConnectionString("Default");
+        builder.Services.AddSqlServer<VehicleDbContext>(connectionString);
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
