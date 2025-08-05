@@ -62,4 +62,11 @@ public class VehicleService : IVehicleService
         }
         return false;
     }
+
+    public async Task<IEnumerable<Auto>> GetVehiclesByRegistered(DateTime registered)
+    {
+        return await _context.Vehicles
+            .Where(v => v.Registered.Equals(registered))
+            .ToListAsync();
+    }
 }

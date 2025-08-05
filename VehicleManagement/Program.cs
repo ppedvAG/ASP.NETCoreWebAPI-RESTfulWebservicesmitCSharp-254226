@@ -16,7 +16,10 @@ public class Program
         // Add services to the container.
 
         // Ausnahmsweise als Singleton zu Demonstrationszwecken registriert
-        builder.Services.AddSingleton<IVehicleService, InMemoryVehicleService>();
+        //builder.Services.AddSingleton<IVehicleService, InMemoryVehicleService>();
+
+        builder.Services.AddScoped<IVehicleService, VehicleService>();
+
         builder.Services.AddControllers()
             .AddJsonOptions(options =>
             {

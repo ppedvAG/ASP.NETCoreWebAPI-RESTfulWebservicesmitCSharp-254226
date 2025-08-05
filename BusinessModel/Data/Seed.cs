@@ -14,7 +14,15 @@ public class Seed
     public const string Vehicle1Manufacturer = "Porsche";
     public const string Vehicle1Model = "A4";
     public const string Vehicle1Fuel = "Diesel";
+    public const string Vehicle1Registered = "2015-01-05 20:13:04.0664443";
     public const int Vehicle1TopSpeed = 100;
+
+    public const string Vehicle2Id = "A7D99D8E-4A4D-C60F-6398-E10E78B6B2CC";
+    public const string Vehicle2Manufacturer = "Audi";
+    public const string Vehicle2Model = "A4";
+    public const string Vehicle2Fuel = "Hybrid";
+    public const string Vehicle2Registered = "2003-08-15 05:03:12.0135851";
+    public const int Vehicle2TopSpeed = 270;
     #endregion
 
     private static readonly int ColorCount = Enum.GetNames(typeof(KnownColor)).Length;
