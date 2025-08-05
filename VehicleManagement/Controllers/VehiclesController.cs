@@ -27,6 +27,17 @@ namespace VehicleManagement.Controllers
         {
             var result = await _vehicleService.GetVehicles();
             return Ok(result.Select(x => x.ToDto()));
+
+            // Alternative: anonymous type verwenden
+            // Dann sparen wir uns die explizite Definition von VehicleResultDto
+            //return Ok(result.Select(x => new
+            //{
+            //    x.Id,
+            //    x.Fuel,
+            //    x.Manufacturer,
+            //    x.Registered,
+            //    Color = x.Color.ToString()
+            //}));
         }
 
         // GET api/v1/vehicles/00000000-0000-0000-0000-000000000001
