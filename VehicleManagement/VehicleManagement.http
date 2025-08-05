@@ -1,6 +1,31 @@
-@VehicleManagement_HostAddress = http://localhost:5034
+@VehicleManagement_HostAddress = https://localhost:44300
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJSLiBSb290IiwiZW1haWwiOiJyb290QGV4YW1wbGUuY29tIiwianRpIjoiMmZlMjdhY2MtNGZjMi00MGViLTllYjAtZGE4MzYzNTdjYWQwIiwibmJmIjoxNzU0NDAyMzE3LCJleHAiOjE3NTQ0ODg3MTcsImlhdCI6MTc1NDQwMjMxNywiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NDQzMzMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo0NDMwMCJ9._bVKg1-NVgn-tEPkSivPZMeCohdPykPHxBhizmlpe-I
+
+POST {{VehicleManagement_HostAddress}}/account/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "R. Root",
+  "password": "Syst3m"
+}
+
+###
+
+POST {{VehicleManagement_HostAddress}}/account/register
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "WebApiUser123",
+  "email": "webapiuser123@example.com",
+  "password": "Syst3m"
+}
+
+###
 
 GET {{VehicleManagement_HostAddress}}/api/v1/vehicles/
+Authorization: Bearer {{token}}
 Accept: application/json
 
 ###
@@ -54,6 +79,7 @@ Accept: application/json
 
 PUT {{VehicleManagement_HostAddress}}/api/v1/vehicles/098b6ecc-5714-b09a-36cf-d6280bb3c707
 Content-Type: application/json
+Authorization: Bearer {{token}}
 Accept: application/json
 
 {
@@ -69,5 +95,6 @@ Accept: application/json
 ###
 
 DELETE {{VehicleManagement_HostAddress}}/api/v1/vehicles/96ba173e-04ae-3bcd-9986-9e56f0adbf3a
+Authorization: Bearer {{token}}
 Accept: application/json
 

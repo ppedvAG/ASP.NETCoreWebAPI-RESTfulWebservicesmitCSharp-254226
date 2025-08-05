@@ -1,7 +1,12 @@
 ﻿
+using BusinessModel;
 using BusinessModel.Contracts;
 using BusinessModel.Data;
-using BusinessModel.Services;
+using BusinessModel.Security;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using System.Text.Json.Serialization;
 using WebApiContrib.Core.Formatter.Csv;
 
@@ -15,10 +20,10 @@ public class Program
 
         // Add services to the container.
 
-        // Ausnahmsweise als Singleton zu Demonstrationszwecken registriert
-        //builder.Services.AddSingleton<IVehicleService, InMemoryVehicleService>();
+        var connectionString = builder.Configuration.GetConnectionString("Default");
+        builder.Services.AddVehicleServices(connectionString);
 
-        builder.Services.AddScoped<IVehicleService, VehicleService>();
+        ConfigureAuthentication(builder);
 
         builder.Services.AddControllers()
             .AddJsonOptions(options =>
@@ -33,10 +38,6 @@ public class Program
             .AddXmlSerializerFormatters()
             // Install-Package WebApiContrib.Core.Formatter.Csv
             .AddCsvSerializerFormatters();
-
-        // Auch notwendig, um Mirgration-Script zu generieren
-        var connectionString = builder.Configuration.GetConnectionString("Default");
-        builder.Services.AddSqlServer<VehicleDbContext>(connectionString);
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
@@ -55,9 +56,51 @@ public class Program
 
         app.UseAuthorization();
 
+        // Authentication ergänzen
+        app.UseAuthentication();
 
         app.MapControllers();
 
         app.Run();
+    }
+
+    private static void ConfigureAuthentication(WebApplicationBuilder builder)
+    {
+        var jwtSettings = builder.Configuration.GetSection("Jwt");
+        builder.Services.Configure<JwtOptions>(jwtSettings);
+        var jwtOptions = jwtSettings.Get<JwtOptions>();
+
+        builder.Services.AddTransient<ITokenService, JwtTokenService>();
+
+        builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+        {
+            options.Password.RequireDigit = true;
+            options.Password.RequireLowercase = true;
+            options.Password.RequireNonAlphanumeric = false;
+            options.Password.RequireUppercase = true;
+            options.Password.RequiredLength = 6;
+        }).AddEntityFrameworkStores<VehicleDbContext>();
+
+        builder.Services.AddAuthentication(options =>
+        {
+            options.DefaultAuthenticateScheme =
+            options.DefaultChallengeScheme =
+            options.DefaultForbidScheme =
+            options.DefaultScheme =
+            options.DefaultSignInScheme =
+            options.DefaultSignOutScheme = JwtBearerDefaults.AuthenticationScheme;
+
+        }).AddJwtBearer(options =>
+        {
+            options.TokenValidationParameters = new()
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = jwtOptions.Issuer,
+                ValidAudience = jwtOptions.Audience,
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtOptions.SigningKey))
+            };
+        });
     }
 }

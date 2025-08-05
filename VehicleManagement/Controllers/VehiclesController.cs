@@ -1,5 +1,8 @@
 ﻿using BusinessModel.Contracts;
+using BusinessModel.Data;
 using BusinessModel.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using VehicleManagement.Mappers;
 using VehicleManagement.Models;
@@ -10,6 +13,7 @@ namespace VehicleManagement.Controllers
 {
     [Route("api/v1/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class VehiclesController : ControllerBase
     {
         private readonly IVehicleService _vehicleService;
@@ -78,6 +82,7 @@ namespace VehicleManagement.Controllers
 
         // PUT api/v1/vehicles/5
         [HttpPut("{id:guid}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Seed.ADMIN_ROLE)]
         public async Task<IActionResult> PutAsync(Guid id, [FromBody] CreatedVehicleDto vehicle)
         {
             try
@@ -100,6 +105,7 @@ namespace VehicleManagement.Controllers
 
         // DELETE api/v1/vehicles/5
         [HttpDelete("{id:guid}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = Seed.ADMIN_ROLE)]
         public async Task<IActionResult> Delete(Guid id)
         {
             try
