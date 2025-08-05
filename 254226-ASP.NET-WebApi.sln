@@ -42,6 +42,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "M006_Testing", "M006_Testin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessModel.Tests", "BusinessModel.Tests\BusinessModel.Tests.csproj", "{6836348B-655F-4480-9983-2C73567DD083}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "M009_OData", "M009_OData", "{985F0414-0598-4A55-AE80-17C23B0EB57C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindODataApi", "NorthwindODataApi\NorthwindODataApi.csproj", "{C6758FDF-8FE2-D8B1-D772-E2AB572927C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -92,6 +96,10 @@ Global
 		{6836348B-655F-4480-9983-2C73567DD083}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6836348B-655F-4480-9983-2C73567DD083}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6836348B-655F-4480-9983-2C73567DD083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6758FDF-8FE2-D8B1-D772-E2AB572927C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6758FDF-8FE2-D8B1-D772-E2AB572927C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6758FDF-8FE2-D8B1-D772-E2AB572927C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6758FDF-8FE2-D8B1-D772-E2AB572927C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -108,6 +116,7 @@ Global
 		{A4380603-0C15-4340-98A5-DED00B04E53E} = {8FD2284F-5041-4AF4-B53B-8072F0D7844F}
 		{17D17980-CF3E-6B3F-33E0-2EB7B5FC5625} = {6371D55E-3283-4D33-8826-FE32E6461302}
 		{6836348B-655F-4480-9983-2C73567DD083} = {FB50674F-F860-40C3-9CC3-07210DF62B3A}
+		{C6758FDF-8FE2-D8B1-D772-E2AB572927C5} = {985F0414-0598-4A55-AE80-17C23B0EB57C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {87C8E858-E3F7-46F1-B444-F032A81C9396}
